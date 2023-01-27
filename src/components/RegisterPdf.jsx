@@ -7,6 +7,7 @@ import Logo1 from '../assets/LogoUnemat1.png'
 import Logo2 from '../assets/LogoUnemat2.png'
 import Logo3 from '../assets/LogoUnemat3.png'
 import LogoRisc from '../assets/LogoRISCv2.svg'
+import 'animate.css'
 
 export function RegisterPdf() {
 	var isoWeek = require('dayjs/plugin/isoWeek')
@@ -41,7 +42,7 @@ export function RegisterPdf() {
 	}
 
 	return (
-		<Card className='p-10 relative flex flex-col gap-6'>
+		<Card className='p-10 relative flex flex-col gap-6 animate__animated animate__fadeInUpBig animate__faster '>
 			<div className='absolute right-7 bottom-7'>
 				<Tooltip
 					content='Download'
