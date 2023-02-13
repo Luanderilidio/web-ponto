@@ -49,10 +49,14 @@ export function HeaderGrid() {
 					</p>
 				</div>
 				<div className='col-span-1 flex items-center justify-center border-2 rounded-md border-gray-500 '>
-					<p className='text-center'>Horas Extras</p>
+					<p className='text-center'>
+						Horas <br /> Extras
+					</p>
 				</div>
 				<div className='col-span-1 flex items-center justify-center border-2 rounded-md border-gray-500 '>
-					<p className='text-center'>Horas Negativas</p>
+					<p className='text-center'>
+						Horas <br /> Negativas
+					</p>
 				</div>
 				<div className='col-span-1 flex items-center justify-center border-2 rounded-md border-gray-500 '>
 					<p className='text-center'>Sábado</p>
