@@ -15,12 +15,12 @@ import { useState } from 'react'
 
 export function SideBar() {
 	const navigate = useNavigate()
-	const [open, setOpen] = useState(false)
+	const [open, setOpen] = useState(true)
 	return (
 		<div
 			className={`${
 				open ? 'w-60 ' : 'w-14'
-			} flex flex-col justify-between rounded-r-md duration-300 flex-1 pr-2  bg-emerald-800 shadow-md shadow-black dark:shadow-black/0  relative`}
+			} flex flex-col justify-between rounded-tr-md duration-300 flex-1 pr-2  bg-emerald-800 shadow-md shadow-black dark:shadow-black/0  relative`}
 		>
 			<div className='w-full'>
 				<div
@@ -144,7 +144,7 @@ export function SideBar() {
 					</button>
 				</div>
 			</div>
-			<div className='flex items-center justify-center mb-2'>
+			<div className='flex items-center justify-center mb-10'>
 				<IconButton>
 					<img
 						className={`${open ? 'w-20' : 'w-10'} duration-300`}
