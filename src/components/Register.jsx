@@ -22,7 +22,6 @@ export function Register(props) {
 	const [value4, setValue4] = useState(dayjs().hour(0).minute(0).second(0))
 
 	const [disabled, setDisabled] = useState({ confirm: false, edit: true })
-	console.log(disabled.confirm)
 
 	const [open, setOpen] = useState(false)
 
