@@ -44,10 +44,9 @@ export function FormRegister() {
 	]
 
 	const toggleClickButton = () => {
-		setGenerate(true)
-		let days = DaysOfMonth(yearMonth)
-		setDays(days)
-		setGenerate(false)
+		setGenerate(!generate)
+		setDays(DaysOfMonth(yearMonth))
+		setGenerate(!generate)
 	}
 
 	return (
@@ -95,7 +94,6 @@ export function FormRegister() {
 					<Grid item xs={12} sm={12} md={12} lg={2}>
 						<Button
 							onClick={() => {
-								setGenerate(false)
 								toggleClickButton()
 							}}
 							fullWidth
@@ -115,7 +113,7 @@ export function FormRegister() {
 							<IconButton color='green'>
 								<FilePdf
 									size={25}
-									weight='bold'
+									weight='regular'
 									className='transition-all ease-in-out text-white hover:scale-105'
 								/>
 							</IconButton>
