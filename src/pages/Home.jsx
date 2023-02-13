@@ -1,12 +1,11 @@
 import { Base } from '../components/base'
+import logo from '../assets/transporte.png'
 
 export default function Home() {
 	return (
 		<Base>
-			<div className='w-full h-full flex items-center justify-center'>
-				<h1 className='dark:text-white tracking-wide font-Anton text-9xl opacity-10 backdrop-blur-xl'>
-					TRANSPORTE UNEMAT
-				</h1>
+			<div className='w-full h-full flex flex-col items-center justify-center'>
+				<img src={logo} className='w-2/4 opacity-20' />
 			</div>
 		</Base>
 	)
