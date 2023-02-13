@@ -13,7 +13,7 @@ import { useEffect, useState } from 'react'
 import { MoonStars, SignOut, Sun } from 'phosphor-react'
 
 export function Header(props) {
-	const [theme, setTheme] = useState('dark')
+	const [theme, setTheme] = useState('')
 	const [toggle, setToggle] = useState(false)
 
 	const element = document.documentElement
@@ -46,20 +46,13 @@ export function Header(props) {
 				</p>
 				<div className='flex items-center justify-center gap-5'>
 					{toggle ? (
-						<Tooltip
-							content='Light Mode'
-							placement='left'
-							animate={{
-								mount: { scale: 1, y: 0 },
-								unmount: { scale: 0, y: 25 }
-							}}
-						>
+						<Tooltip content='Light Mode' placement='bottom'>
 							<IconButton color='amber' onClick={() => setTheme('light')}>
 								<Sun size={25} weight='fill' className='text-white' />
 							</IconButton>
 						</Tooltip>
 					) : (
-						<Tooltip placement='left' content='Dark mode'>
+						<Tooltip placement='bottom' content='Dark mode'>
 							<IconButton color='blue-gray' onClick={() => setTheme('dark')}>
 								<MoonStars size={25} weight='fill' className='text-white' />
 							</IconButton>
