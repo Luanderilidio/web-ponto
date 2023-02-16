@@ -13,7 +13,7 @@ export function Base(props) {
 					{props.children}
 					<div className='h-3' />
 				</div>
-				<Footer />
+				{/* <Footer /> */}
 			</div>
 		</div>
 	)

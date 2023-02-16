@@ -9,21 +9,26 @@ import {
 } from '@material-tailwind/react'
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import { Autocomplete, Grid, TextField } from '@mui/material'
+import { Autocomplete, Container, Dialog, Grid, TextField } from '@mui/material'
 import dayjs from 'dayjs'
 import 'dayjs/locale/pt-br'
 import { faker } from '@faker-js/faker'
-import { FilePdf } from 'phosphor-react'
+import { CheckCircle, FilePdf } from 'phosphor-react'
 import { HeaderGrid } from './HeaderGrid'
 import { Register } from './Register'
 import { DaysOfMonth } from '../utils/DaysOfMonth'
+import { Transition } from '../utils/Transition'
+import { RegisterPdf } from './RegisterPdf'
+import jsPDF from 'jspdf'
 
 export function FormRegister() {
 	const [yearMonth, setYearMonth] = useState(dayjs())
 	const [days, setDays] = useState([])
 	const [generate, setGenerate] = useState(false)
-
+	const [openDialogPdf, setOpenDialogPdf] = useState(false)
 	const [show, setShow] = useState(false)
+
+	const handleDialogPdf = () => setOpenDialogPdf(!openDialogPdf)
 
 	const randonNames = [
 		{
@@ -47,6 +52,15 @@ export function FormRegister() {
 		setGenerate(!generate)
 		setDays(DaysOfMonth(yearMonth))
 		setGenerate(!generate)
+	}
+
+	const GeneratePdf = () => {
+		setOpenDialogPdf(true)
+		var originalContents = document.body.innerHTML
+		var printContents = document.getElementById('pdf').innerHTML
+		document.body.innerHTML = printContents
+		window.print()
+		document.body.innerHTML = originalContents
 	}
 
 	return (
@@ -103,14 +117,8 @@ export function FormRegister() {
 						</Button>
 					</Grid>
 					<Grid item xs={12} sm={12} md={12} lg={2}>
-						<Tooltip
-							content='Gerar Relatório'
-							animate={{
-								mount: { scale: 1, y: 0 },
-								unmount: { scale: 0, y: 25 }
-							}}
-						>
-							<IconButton color='green'>
+						<Tooltip content='Gerar Relatório'>
+							<IconButton onClick={handleDialogPdf} color='green'>
 								<FilePdf
 									size={25}
 									weight='regular'
@@ -132,25 +140,33 @@ export function FormRegister() {
 				dismissible={{
 					onClose: () => setShow(false)
 				}}
-				icon={
-					<svg
-						xmlns='http://www.w3.org/2000/svg'
-						fill='none'
-						viewBox='0 0 24 24'
-						strokeWidth={2}
-						stroke='currentColor'
-						className='h-6 w-6'
-					>
-						<path
-							strokeLinecap='round'
-							strokeLinejoin='round'
-							d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
-						/>
-					</svg>
-				}
+				icon={<CheckCircle size={32} />}
 			>
 				<Typography className='font-bold'>Registrado com Sucesso!</Typography>
 			</Alert>
+			<Dialog
+				fullScreen
+				open={openDialogPdf}
+				onClose={handleDialogPdf}
+				TransitionComponent={Transition}
+			>
+				<Container maxWidth='md'>
+					<div className='p-10 flex flex-col justify-center items-center gap-5'>
+						<div className='w-full flex gap-3'>
+							<Button fullWidth onClick={handleDialogPdf} color='red'>
+								Close
+							</Button>
+							<Button fullWidth onClick={GeneratePdf}>
+								Imprimir
+							</Button>
+						</div>
+
+						<div id='pdf'>
+							<RegisterPdf />
+						</div>
+					</div>
+				</Container>
+			</Dialog>
 		</>
 	)
 }

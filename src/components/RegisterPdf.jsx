@@ -11,6 +11,8 @@ import 'animate.css'
 
 export function RegisterPdf() {
 	var isoWeek = require('dayjs/plugin/isoWeek')
+	const randomPeple = faker.image.people()
+
 	const randomName = faker.name.fullName()
 	const randomDates = faker.date.betweens(
 		'2023-01-01T00:00:00.000Z',
@@ -42,77 +44,67 @@ export function RegisterPdf() {
 	}
 
 	return (
-		<Card className='p-10 relative flex flex-col gap-6 animate__animated animate__fadeInUpBig animate__faster '>
-			<div className='absolute right-7 bottom-7'>
-				<Tooltip
-					content='Download'
-					animate={{
-						mount: { scale: 1, y: 0 },
-						unmount: { scale: 0, y: 40 }
-					}}
-				>
-					<IconButton color='blue-gray' variant='text'>
-						<DownloadSimple
-							size={30}
-							weight='bold'
-							className='transition-all ease-in-out text-gray-500 hover:scale-105 hover:text-gray-700'
-						/>
-					</IconButton>
-				</Tooltip>
-			</div>
+		<Card className='p-10 relative text-black  flex flex-col gap-6 animate__animated animate__fadeInUpBig animate__faster '>
 			<div className='flex items-center justify-between'>
 				<Avatar src={Logo2} size='lg' />
 				<div className='flex flex-col items-center'>
-					<p className='font-Roboto font-semibold text-sm '>
+					<p className='font-Roboto font-semibold text-xs '>
 						GOVERNO DO ESTADO DE MATO GROSSO
 					</p>
-					<p className='font-Roboto font-semibold text-sm '>
+					<p className='font-Roboto font-semibold text-xs '>
 						SECRETARIA DE ESTADO DE CIÊNCIA E TECNOLOGIA
 					</p>
-					<p className='font-Roboto font-semibold text-sm '>
+					<p className='font-Roboto font-semibold text-xs '>
 						UNIVERSIDADE DO ESTADO DE MATO GROSSO
 					</p>
 				</div>
 				<Avatar src={Logo1} size='lg' />
 			</div>
-			<div className='grid grid-cols-12 gap-[2px]'>
+			<div className='grid grid-cols-12 grid-rows-3 gap-[2px]'>
 				<div className='col-span-12'>
-					<p className='font-Roboto font-semibold text-sm text-center '>
+					<p className='font-Roboto font-semibold text-xs text-center '>
 						CONTROLE DE JORNADA DE TRABALHO
 					</p>
 				</div>
-				<div className='col-span-8 border-2 border-gray-500 rounded-sm'>
-					<p className='font-Roboto font-semibold text-sm text-left'>
+				<div className='col-span-6 border-2 border-gray-500 rounded-sm'>
+					<p className='font-Roboto font-semibold text-xs text-left'>
 						EMPREGADOR: UNIVERSIDADE DO MATO GROSSO
 					</p>
 				</div>
 				<div className='col-span-4  border-2 border-b-2 border-gray-500 rounded-sm'>
-					<p className='font-Roboto font-semibold text-sm text-left'>
+					<p className='font-Roboto font-semibold text-xs text-left'>
 						CPF/CNPJ: 054.012.451-65
 					</p>
 				</div>
-				<div className='col-span-8 border-2 border-gray-500 rounded-sm'>
-					<p className='font-Roboto font-semibold text-sm text-left uppercase'>
+				<div className='col-span-2 row-span-3 flex items-center justify-center '>
+					<Avatar
+						alt='Remy Sharp'
+						src={randomPeple}
+						size='xl'
+					/>
+				</div>
+				<div className='col-span-6 border-2 border-gray-500 rounded-sm'>
+					<p className='font-Roboto font-semibold text-xs text-left uppercase'>
 						SERVIDOR(A): {randomName}
 					</p>
 				</div>
 				<div className='col-span-4 border-2 border-gray-500 rounded-sm'>
-					<p className='font-Roboto font-semibold text-sm text-left'>
+					<p className='font-Roboto font-semibold text-xs text-left'>
 						MATRICULA: 258134
 					</p>
 				</div>
-				<div className='col-span-5 border-2 border-gray-500 rounded-sm'>
-					<p className='font-Roboto font-semibold text-sm text-left uppercase'>
+				<div className='col-span-3 border-2 border-gray-500 rounded-sm'>
+					<p className='font-Roboto font-semibold text-xs text-left uppercase'>
 						FUNCÃO: MOTORISTA
 					</p>
 				</div>
 				<div className='col-span-3 border-2 border-gray-500 rounded-sm'>
-					<p className='font-Roboto font-semibold text-sm text-left uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-left uppercase'>
 						MÊS: JANEIRO
 					</p>
 				</div>
 				<div className='col-span-4 border-2 border-gray-500 rounded-sm'>
-					<p className='font-Roboto font-semibold text-sm text-left'>
+					<p className='font-Roboto font-semibold text-xs text-left'>
 						ANO: 2023
 					</p>
 				</div>
@@ -120,32 +112,32 @@ export function RegisterPdf() {
 			<div>
 				<div className='grid grid-cols-12 gap-[2px]'>
 					<div className='col-span-12'>
-						<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500'>
+						<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500'>
 							FRÊQUENCIA
 						</p>
 					</div>
 					<div className='col-span-4'>
-						<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500'>
+						<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500'>
 							DATA
 						</p>
 					</div>
 					<div className='col-span-2'>
-						<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500'>
+						<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500'>
 							ENTRADA
 						</p>
 					</div>
 					<div className='col-span-2'>
-						<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500'>
+						<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500'>
 							SAÍDA
 						</p>
 					</div>
 					<div className='col-span-2'>
-						<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500'>
+						<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500'>
 							ENTRADA
 						</p>
 					</div>
 					<div className='col-span-2'>
-						<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500'>
+						<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500'>
 							SAÍDA
 						</p>
 					</div>
@@ -155,32 +147,32 @@ export function RegisterPdf() {
 					return (
 						<div key={index} className='grid grid-cols-12 gap-[2px] mt-[2px]'>
 							<div className='col-span-3'>
-								<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500'>
+								<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500'>
 									{dayjs(date).format('DD/MM/YYYY')}
 								</p>
 							</div>
 							<div className='col-span-1'>
-								<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+								<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 									{getWeekDay(dayjs(date).day())}
 								</p>
 							</div>
 							<div className='col-span-2'>
-								<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500'>
+								<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500'>
 									{dayjs(date).format('HH:mm')}
 								</p>
 							</div>
 							<div className='col-span-2'>
-								<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500'>
+								<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500'>
 									{dayjs(date).format('HH:mm')}
 								</p>
 							</div>
 							<div className='col-span-2'>
-								<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500'>
+								<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500'>
 									{dayjs(date).format('HH:mm')}
 								</p>
 							</div>
 							<div className='col-span-2'>
-								<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500'>
+								<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500'>
 									{dayjs(date).format('HH:mm')}
 								</p>
 							</div>
@@ -190,146 +182,146 @@ export function RegisterPdf() {
 			</div>
 			<div className='grid grid-cols-12 gap-[2px]'>
 				<div className='col-span-6 '>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						HORAS EXTRAS ACUMULADAS NO MÊS
 					</p>
 				</div>
 				<div className='col-span-6'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						SALDO DE HORAS EXTRAORDINÁRIAS
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						DIAS
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						HORAS
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						MINUTOS
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						DIAS
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						HORAS
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						MINUTOS
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						3
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						30
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						10
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						4
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						4
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						50
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto h-full font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto h-full font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						HORAS NORMAIS
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto h-full font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto h-full font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						HORAS EXTRAS
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='h-full font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='h-full font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						SABADO
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='h-full font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='h-full font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						DOMINGO
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='h-full font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='h-full font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						FERIADO
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						HORAS NEGATIVAS
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						50:58:00
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						19:18:00
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						28:00:00
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						12:00:00
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						00:00:00
 					</p>
 				</div>
 				<div className='col-span-2'>
-					<p className='font-Roboto font-semibold text-sm text-center border-2 rounded-sm border-gray-500 uppercase'>
+					<p className='font-Roboto font-semibold text-xs text-center border-2 rounded-sm border-gray-500 uppercase'>
 						0:02:00
 					</p>
 				</div>
 			</div>
 			<div className='grid grid-cols-12 gap-5 mt-10'>
 				<div className='col-span-6'>
-					<div className='h-[2px] bg-gray-500 rounded-full' />
-					<p className='font-Roboto font-semibold text-sm text-center '>
+					<div className='h-[2px] bg-black rounded-full' />
+					<p className='font-Roboto font-semibold text-xs text-center '>
 						Assinatura
 					</p>
 				</div>
 				<div className='col-span-6'>
-					<div className='h-[2px] bg-gray-500 rounded-full' />
-					<p className='font-Roboto font-semibold text-sm text-center '>
+					<div className='h-[2px] bg-black rounded-full' />
+					<p className='font-Roboto font-semibold text-xs text-center '>
 						Chefe Imediato
 					</p>
 				</div>
@@ -347,7 +339,7 @@ export function RegisterPdf() {
 					</p>
 				</div>
 				<div className='col-span-5'>
-					<div className='flex items-center justify-end'>
+					<div className='flex items-center justify-center'>
 						<img src={Logo3} className='w-40' />
 					</div>
 				</div>
